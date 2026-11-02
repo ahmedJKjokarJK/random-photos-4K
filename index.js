@@ -1,35 +1,17 @@
-body{
-    margin:0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #9e1d1d;
+const imagecontainerEl = document.querySelector(".image-container");
+
+const btnEl = document.querySelector(".btn");
+
+btnEl.addEventListener("click", () => {
+     imageNum = 10;
+    addNewImages();
+});
+
+function addNewImages() {
+    for (let index = 0; index < imageNum; index++) {
+        const newImageEl = document.createElement("img");
+        newImageEl.src = `https://picsum.photos/300?random=${Math.floor(Math.random() * 2000)}`;
+        imagecontainerEl.appendChild(newImageEl);
+    }
 }
 
-.image-container{
-    text-align: center;
-}
-
-.image-container img{
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    background-color: lightgray;
-    width: 300px;
-    height: 300px;
-}
-
-.btn{
-    background-color: slateblue;
-    border: none;
-    padding: 10px 20px;
-    margin: 20px;
-    color: white;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    cursor: pointer;
-}
-
-.btn:hover{
-    opacity: 0.9;
-}
