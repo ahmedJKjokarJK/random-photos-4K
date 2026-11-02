@@ -1,39 +1,35 @@
-const btnEl = document.querySelector(".btn");
-const inputEl =document.getElementById("input");
-const copyiconEl =document.querySelector(".fa-copy");
-const alertContainer = document.querySelector(".alert-container");
-
-btnEl.addEventListener("click",()=>{
-createpassword()
-})
-
-copyiconEl.addEventListener("click",()=>{
-    copypassword();
-    if(inputEl.value){
-    alertContainer.classList.add("active")
-    setTimeout(() => {
-            alertContainer.classList.remove("active");
-        }, 2000);
-    }
-   
-});
-
-function createpassword(){
-    const chars =
-    "0123456789abcdefghijklmnopqrstuvwxtz!@#$%^&*()_+?:{}[]ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    const passwordLength = 14;
-    let password = ""
-    for(let index = 0; index < passwordLength; index++) {
-        const randomNum = Math.floor(Math.random() * chars.length);
-        password += chars.substring(randomNum, randomNum + 1);
-        }
-inputEl.value = password;
- alertContainer.innerText = password + " copied!"
+body{
+    margin:0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #9e1d1d;
 }
 
-function copypassword(){
-    inputEl.select();
-    inputEl.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(inputEl.value);
+.image-container{
+    text-align: center;
+}
 
+.image-container img{
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: lightgray;
+    width: 300px;
+    height: 300px;
+}
+
+.btn{
+    background-color: slateblue;
+    border: none;
+    padding: 10px 20px;
+    margin: 20px;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+.btn:hover{
+    opacity: 0.9;
 }
